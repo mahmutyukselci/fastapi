@@ -1,7 +1,13 @@
-from fastapi import FastAPI
+import os
+import sys
+from libretranslate.main import main
 
-app = FastAPI()
-
-@app.get("/")
-async def root():
-    return {"greeting": "Hello, World!", "message": "Welcome to FastAPI!"}
+if __name__ == "__main__":
+    # LibreTranslate'i çalıştır
+    sys.argv = [
+        "libretranslate",
+        "--host", "0.0.0.0",
+        "--port", os.environ.get("PORT", "8080"),
+        "--load-only", "en,tr"
+    ]
+    main()
