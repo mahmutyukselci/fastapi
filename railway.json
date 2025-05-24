@@ -4,6 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "hypercorn main:app --bind \"[::]:$PORT\""
+    "startCommand": "python -m libretranslate --host 0.0.0.0 --port 8080 --load-only en,tr"
   }
 }
